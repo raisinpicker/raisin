@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<div class="page">
+
+  {{ attach_library('radix/navbar') }}
+
+  <nav class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
+    <div class="container">
+      {% block branding %}
+        {% if page.navbar_branding %}
+          {{ page.navbar_branding }}
+        {% endif %}
+      {% endblock %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+      {% block left %}
+        {% if page.navbar_left %}
+          <div class="mr-auto">
+            {{ page.navbar_left }}
+          </div>
+        {% endif %}
+      {% endblock %}
+      {% block right %}
+        {% if page.navbar_right %}
+          {{ page.navbar_right }}
+        {% endif %}
+      {% endblock %}
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container pt-3 pb-5">
+    {% if page.header %}
+      <header class="page__header row pb-2">
+        <div class="col-sm-12">
+          {{ page.header }}
+        </div>
+      </header>
+    {% endif %}
+    <div class="row">
+    {% if page.sidebar_left %}
+      <div class="page__sidebar_left col-md-3">
+        {{ page.sidebar_left }}
+      </div>
+    {% endif %}
+    {% if page.content %}
+      {% if page.sidebar_left and page.sidebar_right %}
+        <div class="page__content col-md-6">
+          {{ page.content }}
+        </div>
+      {% elseif page.sidebar_left or page.sidebar_right %}
+        <div class="page__content col-md-9">
+          {{ page.content }}
+        </div>
+      {% else %}
+        <div class="page__content col-md-12">
+          {{ page.content }}
+        </div>
+      {% endif %}
+    {% endif %}
+    {% if page.sidebar_right %}
+      <div class="page__sidebar_right col col-md-3">
+        {{ page.sidebar_right }}
+      </div>
+    {% endif %}
+    </div>
+  </main>
+
+  {% if page.footer %}
+    <footer class="page__footer">
+      <div class="container">
+        {{ page.footer }}
+      </div>
+    </footer>
+  {% endif %}
+</div>

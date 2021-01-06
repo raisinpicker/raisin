@@ -1,0 +1,14 @@
+global-style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/raisin.style.css: {}
+global-js:
+  version: VERSION
+  js:
+    assets/js/bootstrap.bundle.min.js: {}
+    assets/js/raisin.script.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
