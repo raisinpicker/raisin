@@ -12,3 +12,7 @@ global-js:
     - core/jquery
     - core/jquery.once
     - core/drupal
+maticons:
+  css:
+    theme:
+      "//fonts.googleapis.com/icon?family=Material+Icons": { type: external, minified: true }

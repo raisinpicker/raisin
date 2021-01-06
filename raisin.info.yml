@@ -21,6 +21,7 @@ regions:
 libraries:
   - raisin/global-style
   - raisin/global-js
+  - raisin/maticons
 
 libraries-override:
   core/drupal.dialog.off_canvas:
